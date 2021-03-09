@@ -1,0 +1,2 @@
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Debug\WorldPopulationMonitoring.exe
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Debug\WorldPopulationMonitoring.pdb
