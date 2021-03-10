@@ -76,7 +76,7 @@ void runConsole(Console c)
 				printf(pc[i].name);
 				printf(", ");
 				printf(pc[i].continent);
-				printf(", %lf\n", pc[i].population);
+				printf(", %lf million\n", pc[i].population);
 			}
 			printf("\n");
 		}
@@ -97,7 +97,7 @@ void runConsole(Console c)
 				printf(filteredCountries[i].name);
 				printf(", ");
 				printf(filteredCountries[i].continent);
-				printf(", %lf\n", filteredCountries[i].population);
+				printf(", %lf million\n", filteredCountries[i].population);
 			}
 			printf("\n");
 		}

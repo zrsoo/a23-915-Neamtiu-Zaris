@@ -3,10 +3,6 @@ C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMo
 C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Console.c(91,64): warning C4024: 'filterByContinent': different types for formal and actual parameter 3
 C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Console.c(92,61): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[100]'
 C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Console.c(92,43): warning C4024: 'sortAscendingName': different types for formal and actual parameter 2
-  Service.c
-C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Service.c(71,13): warning C4013: 'strcmp' undefined; assuming extern returning int
-C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Service.c(94,20): warning C4101: 'c2Update': unreferenced local variable
-C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Service.c(94,10): warning C4101: 'c1Update': unreferenced local variable
   main.c
   Generating Code...
   WorldPopulationMonitoring.vcxproj -> C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Debug\WorldPopulationMonitoring.exe
