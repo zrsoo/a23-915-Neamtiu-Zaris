@@ -11,6 +11,7 @@ Console createConsole(Service s)
 void runConsole(Console c)
 {
 	int command;
+	add10Countries(c.s);
 	while (1)
 	{
 		printMenu();
@@ -22,7 +23,7 @@ void runConsole(Console c)
 			char continent[31];
 			double population;
 
-			printf("Country's name: ");
+			printf("\nCountry's name: ");
 			scanf_s("%s", name, 30);
 			printf("Country's continent: ");
 			scanf_s("%s", continent, 30);
@@ -37,7 +38,7 @@ void runConsole(Console c)
 		else if (command == 2)
 		{
 			char name[31];
-			printf("Country's name: ");
+			printf("\nCountry's name: ");
 			scanf_s("%s", name, 30);
 
 			deleteCountry(c.s, name);
@@ -49,7 +50,7 @@ void runConsole(Console c)
 			char continent[31];
 			double population;
 
-			printf("Name of the country that you want to update: ");
+			printf("\nName of the country that you want to update: ");
 			scanf_s("%s", old_name, 31);
 			printf("Updated name of the country: ");
 			scanf_s("%s", name, 31);
@@ -68,15 +69,51 @@ void runConsole(Console c)
 			int nr_countries = getNumberCountries(c.s);
 			Country* pc = getAllCountries(c.s);
 
-			printf("There are a total of %d countries: \n", nr_countries);
+			printf("\nThere are a total of %d countries: \n", nr_countries);
 			for (int i = 0; i < nr_countries; ++i)
 			{
 				printf("%d.) ", i + 1);
 				printf(pc[i].name);
-				printf(" ");
+				printf(", ");
 				printf(pc[i].continent);
-				printf(" %lf\n", pc[i].population);
+				printf(", %lf\n", pc[i].population);
 			}
+			printf("\n");
+		}
+		else if (command == 5)
+		{
+			Country filteredCountries[100];
+			char continent[30];
+
+			printf("\nThe continent you want to filter by: ");
+			scanf_s("%s", continent, 30);
+
+			int nrFilteredCountries = filterByContinent(c.s, continent, &filteredCountries);
+			sortAscendingName(nrFilteredCountries, &filteredCountries);
+
+			for(int i = 0; i < nrFilteredCountries; ++i)
+			{
+				printf("%d.) ", i + 1);
+				printf(filteredCountries[i].name);
+				printf(", ");
+				printf(filteredCountries[i].continent);
+				printf(", %lf\n", filteredCountries[i].population);
+			}
+			printf("\n");
+		}
+		else if (command == 6)
+		{
+			char name1[30], name2[30];
+			double population;
+
+			printf("\nThe country that the people migrate away from: ");
+			scanf_s("%s", name1, 30);
+			printf("The country that the people migrate to: ");
+			scanf_s("%s", name2, 30);
+			printf("Number of people migrating: ");
+			scanf_s("%lf", &population);
+
+			migrate(c.s, name1, name2, population);
 		}
 		else
 		{
@@ -88,7 +125,7 @@ void runConsole(Console c)
 
 void printMenu()
 {
-	printf("1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n");
+	printf("1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n5. Filter countries by continent.\n6. Simulate migration.\n");
 }
 
 int getCommandInput()
