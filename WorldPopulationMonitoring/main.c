@@ -27,12 +27,6 @@ int main()
 	printf(pc[0].name);
 	*/
 
-	Repository repo;
-	repo = createRepository();
-
-	Service s;
-	s = createService(&repo);
-
 	/*Country c1;
 	c1 = createCountry("Romania", "Europe", 21.2);
 
@@ -51,6 +45,12 @@ int main()
 	printf(pc[0].name);
 	printf(pc[1].name);
 	printf(pc[2].name);*/
+
+	Repository repo;
+	repo = createRepository();
+
+	Service s;
+	s = createService(&repo);
 
 	Console c;
 	c = createConsole(s);
