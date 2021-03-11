@@ -68,9 +68,19 @@ int filterByContinent(Service s, char continent[], Country* pcf)
 
 	int ind = 0;
 
-	for (int i = 0; i < nr_countries; ++i)
-		if (strcmp(pc[i].continent, continent) == 0)
+	// If a continent was specified, return the countries on that continent.
+	if (continent != "")
+	{
+		for (int i = 0; i < nr_countries; ++i)
+			if (strcmp(pc[i].continent, continent) == 0)
+				pcf[ind++] = pc[i];
+	}
+	// Else, return them all.
+	else
+	{
+		for (int i = 0; i < nr_countries; ++i)
 			pcf[ind++] = pc[i];
+	}
 
 	return ind;
 }
@@ -112,4 +122,18 @@ void migrate(Service s, char name1[], char name2[], double population)
 			pc[i].population = pc[i].population + population;
 		}
 	}
+}
+
+void sortAscendingPopulation(int nrCountries, Country* pc)
+{
+	Country caux;
+
+	for (int i = 0; i < nrCountries - 1; ++i)
+		for (int j = i + 1; j < nrCountries; ++j)
+			if (pc[i].population > pc[j].population)
+			{
+				caux = pc[i];
+				pc[i] = pc[j];
+				pc[j] = caux;
+			}
 }

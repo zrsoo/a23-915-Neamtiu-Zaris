@@ -88,8 +88,10 @@ void runConsole(Console c)
 			printf("\nThe continent you want to filter by: ");
 			scanf_s("%s", continent, 30);
 
+			//fgets(continent, 30, stdin);
+
 			int nrFilteredCountries = filterByContinent(c.s, continent, &filteredCountries);
-			sortAscendingName(nrFilteredCountries, &filteredCountries);
+			sortAscendingPopulation(nrFilteredCountries, &filteredCountries);
 
 			for(int i = 0; i < nrFilteredCountries; ++i)
 			{

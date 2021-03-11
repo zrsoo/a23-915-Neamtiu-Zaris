@@ -1,2 +1,6 @@
-﻿  Repository.c
+﻿  Console.c
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Console.c(93,82): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[100]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Console.c(93,64): warning C4024: 'filterByContinent': different types for formal and actual parameter 3
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Console.c(94,67): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[100]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Console.c(94,49): warning C4024: 'sortAscendingPopulation': different types for formal and actual parameter 2
   WorldPopulationMonitoring.vcxproj -> C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Debug\WorldPopulationMonitoring.exe
