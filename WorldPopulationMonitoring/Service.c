@@ -1,4 +1,5 @@
 #include "Service.h"
+#include <string.h>
 
 Service createService(Repository* repo)
 {
@@ -91,7 +92,6 @@ void sortAscendingName(int nrCountries, Country* pc)
 void migrate(Service s, char name1[], char name2[], double population)
 {
 	// Simulates the migration of "population" number of people from a country (1) to another (2)
-	Country c1Update, c2Update;
 
 	int nrCountries = getNumberCountries(s);
 	Country* pc = getAllCountries(s);

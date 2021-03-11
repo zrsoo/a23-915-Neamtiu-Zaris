@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Console.h"
 #include "Service.h"
+#include "DynamicArray.h"
 
 int main()
 {
@@ -56,6 +57,36 @@ int main()
 	c = createConsole(s);
 
 	runConsole(c);
+	
+
+	/*Country c1;
+	c1 = createCountry("Romania", "Europe", 21.2);
+
+	DynamicArray da = createDynamicArray(1);
+	addToEnd(&da, c1);
+
+	Country cget = getElement(da, 0);
+
+	toString(cget);
+
+	int size = getSize(da);
+
+	printf("\nInitial size: %d", size);
+
+	resizeArray(&da);
+
+	int size2 = getSize(da);
+
+	printf("\nAfter resize: %d", size2);
+
+	Country c2;
+	c2 = createCountry("asd", "asd", 21.2);
+
+	addToEnd(&da, c2);
+
+	cget = getElement(da, 1);
+
+	toString(cget);*/
 
 	return 0;
 }

@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Console.c" />
     <ClCompile Include="Country.c" />
+    <ClCompile Include="DynamicArray.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Repository.c" />
     <ClCompile Include="Service.c" />
@@ -148,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Console.h" />
     <ClInclude Include="Country.h" />
+    <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
   </ItemGroup>

@@ -10,5 +10,5 @@ typedef struct {
 Country createCountry(char name[], char continent[], double population);
 char* getName(Country* c);
 char* getContinent(Country* c);
-int getPopulation(Country* c);
+double getPopulation(Country* c);
 void toString(Country c);

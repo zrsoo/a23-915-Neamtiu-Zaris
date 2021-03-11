@@ -1,9 +1,11 @@
 #pragma once
 #include "Country.h"
+#include "DynamicArray.h"
 
 typedef struct {
-	int nr_countries;
-	Country countries[200];
+	//int nr_countries;
+	DynamicArray da;
+	//Country countries[200];
 } Repository;
 
 Repository createRepository();
