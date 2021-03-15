@@ -145,6 +145,40 @@ void runConsole(Console c)
 
 			migrate(c.s, name1, name2, population);
 		}
+		else if (command == 8)
+		{
+			Country filteredCountries[100];
+			char continent[30];
+
+			printf("\nThe continent you want to filter by: ");
+			//scanf_s(" %s", continent, 30);
+
+			char ltr = getchar();
+			gets(continent);
+			continent[strcspn(continent, "\n")] = 0;
+
+			printf("The minimum population of the countries: ");
+
+			double population;
+			scanf_s("%lf", &population);
+
+			int nrFilteredCountries = filterByContinentPopulation(c.s, continent, population, &filteredCountries);
+			sortAscendingPopulation(nrFilteredCountries, &filteredCountries);
+
+			for (int i = 0; i < nrFilteredCountries; ++i)
+			{
+				printf("%d.) ", i + 1);
+				printf(filteredCountries[i].name);
+				printf(", ");
+				printf(filteredCountries[i].continent);
+				printf(", %lf million\n", filteredCountries[i].population);
+			}
+			printf("\n");
+		}
+		else if (command == 9)
+		{
+			return;
+		}
 		else
 		{
 			printf("Incorrect command.\n");
@@ -155,7 +189,10 @@ void runConsole(Console c)
 
 void printMenu()
 {
-	printf("1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n5. Filter countries by continent.\n6. Filter by name (partial string matching).\n7. Simulate migration.\n");
+	printf("1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n5. Filter countries by continent."
+		"\n6. Filter by name (partial string matching).\n7. Simulate migration.\n8. Display all countries on a given continent (if the continent is empty, all countries will be considered),\n"
+		"whose populations are greater than a given value, sorted ascending by population.\n"
+		"9. Exit\n");
 }
 
 int getCommandInput()

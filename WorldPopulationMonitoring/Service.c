@@ -1,11 +1,12 @@
 #include "Service.h"
 #include <string.h>
 
-Service createService(Repository* repo)
+Service createService(Repository* repo, UndoManager* um)
 {
 	Service s;
 	s.repo = repo;
-	return  s;
+	s.um = um;
+	return s;
 }
 
 void addCountry(Service s, Country c)
@@ -151,6 +152,31 @@ int filterByCountry(Service s, char country[], Country* pcf)
 	{
 		for (int i = 0; i < nr_countries; ++i)
 			if (strstr(pc[i].name, country) != NULL)
+				pcf[ind++] = pc[i];
+	}
+	// Else, return them all.
+	else
+	{
+		for (int i = 0; i < nr_countries; ++i)
+			pcf[ind++] = pc[i];
+	}
+
+	return ind;
+}
+
+int filterByContinentPopulation(Service s, char continent[], double population, Country* pcf)
+{
+	// Populates an array with the countries situated on a specified continent
+	int nr_countries = getNumberCountries(s);
+	Country* pc = getAllCountries(s);
+
+	int ind = 0;
+
+	// If a continent was specified, return the countries on that continent.
+	if (strcmp(continent, "\0") != 0)
+	{
+		for (int i = 0; i < nr_countries; ++i)
+			if (strcmp(pc[i].continent, continent) == 0 && pc[i].population > population)
 				pcf[ind++] = pc[i];
 	}
 	// Else, return them all.

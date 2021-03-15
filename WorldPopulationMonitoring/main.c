@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "Console.h"
 #include "Service.h"
-#include "DynamicArray.h"
+#include "Repository.h"
 
 int main()
 {
@@ -50,14 +50,18 @@ int main()
 	Repository repo;
 	repo = createRepository();
 
+	UndoManager um;
+	um = createUndoManager(10);
+
 	Service s;
-	s = createService(&repo);
+	s = createService(&repo, &um);
 
 	Console c;
 	c = createConsole(s);
 
 	runConsole(c);
-	
+	DestroyDynamicArray(&repo.da);
+	DestroyUndoManager(&um);
 
 	/*Country c1;
 	c1 = createCountry("Romania", "Europe", 21.2);

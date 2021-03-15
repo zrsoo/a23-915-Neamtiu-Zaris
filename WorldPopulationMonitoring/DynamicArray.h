@@ -15,3 +15,4 @@ void addToEnd(DynamicArray* da, Country ctr);
 void deleteElem(DynamicArray* da, int i);
 int arrayFull(DynamicArray da);
 void resizeArray(DynamicArray* da);
+void Destroy(DynamicArray* da);

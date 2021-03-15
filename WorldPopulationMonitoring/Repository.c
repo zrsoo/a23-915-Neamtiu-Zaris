@@ -1,4 +1,5 @@
 #include "Repository.h"
+#include "DynamicArray.h">
 #include <string.h>
 #include <stdio.h>
 
@@ -53,4 +54,9 @@ void updateCountryRepo(Repository* repo, char old_name[], Country newC)
 	for (int i = 0; i < repo->da.nrElem; ++i)
 		if (strcmp(repo->da.ptrarr[i].name, old_name) == 0)
 			updateElement(&repo->da, i, newC);
+}
+
+void DestroyDynamicArray(Repository* repo)
+{
+	Destroy(&repo->da);
 }

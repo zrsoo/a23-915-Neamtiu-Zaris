@@ -57,6 +57,8 @@ void deleteElem(DynamicArray* da, int i)
 		for (int j = i; j < da->nrElem - 1; ++j)
 			(da->ptrarr)[j] = (da->ptrarr)[j + 1];
 	}
+
+	da->nrElem--;
 }
 
 int arrayFull(DynamicArray da)
@@ -78,4 +80,10 @@ void resizeArray(DynamicArray* da)
 
 	// Pointing to bigger array.
 	da->ptrarr = newptr;
+}
+
+void Destroy(DynamicArray* da)
+{
+	// Frees the space
+	free(da->ptrarr);
 }
