@@ -1,5 +1,6 @@
 #include "Console.h"
 #include <stdio.h>
+#include <string.h>
 
 Console createConsole(Service s)
 {
@@ -86,14 +87,16 @@ void runConsole(Console c)
 			char continent[30];
 
 			printf("\nThe continent you want to filter by: ");
-			scanf_s("%s", continent, 30);
+			//scanf_s(" %s", continent, 30);
 
-			//fgets(continent, 30, stdin);
+			char ltr = getchar();
+			gets(continent);
+			continent[strcspn(continent, "\n")] = 0;
 
 			int nrFilteredCountries = filterByContinent(c.s, continent, &filteredCountries);
 			sortAscendingPopulation(nrFilteredCountries, &filteredCountries);
 
-			for(int i = 0; i < nrFilteredCountries; ++i)
+			for (int i = 0; i < nrFilteredCountries; ++i)
 			{
 				printf("%d.) ", i + 1);
 				printf(filteredCountries[i].name);
@@ -104,6 +107,31 @@ void runConsole(Console c)
 			printf("\n");
 		}
 		else if (command == 6)
+		{
+			Country filteredCountries[100];
+			char country[30];
+
+			printf("\nThe name you want to filter by: ");
+			//scanf_s(" %s", continent, 30);
+
+			char ltr = getchar();
+			gets(country);
+			country[strcspn(country, "\n")] = 0;
+
+			int nrFilteredCountries = filterByCountry(c.s, country, &filteredCountries);
+			sortAscendingPopulation(nrFilteredCountries, &filteredCountries);
+
+			for (int i = 0; i < nrFilteredCountries; ++i)
+			{
+				printf("%d.) ", i + 1);
+				printf(filteredCountries[i].name);
+				printf(", ");
+				printf(filteredCountries[i].continent);
+				printf(", %lf million\n", filteredCountries[i].population);
+			}
+			printf("\n");
+		}
+		else if (command == 7)
 		{
 			char name1[30], name2[30];
 			double population;
@@ -127,7 +155,7 @@ void runConsole(Console c)
 
 void printMenu()
 {
-	printf("1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n5. Filter countries by continent.\n6. Simulate migration.\n");
+	printf("1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n5. Filter countries by continent.\n6. Filter by name (partial string matching).\n7. Simulate migration.\n");
 }
 
 int getCommandInput()

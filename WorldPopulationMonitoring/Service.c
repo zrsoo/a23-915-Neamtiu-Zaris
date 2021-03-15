@@ -69,7 +69,7 @@ int filterByContinent(Service s, char continent[], Country* pcf)
 	int ind = 0;
 
 	// If a continent was specified, return the countries on that continent.
-	if (continent != "")
+	if (strcmp(continent, "\0") != 0)
 	{
 		for (int i = 0; i < nr_countries; ++i)
 			if (strcmp(pc[i].continent, continent) == 0)
@@ -136,4 +136,29 @@ void sortAscendingPopulation(int nrCountries, Country* pc)
 				pc[i] = pc[j];
 				pc[j] = caux;
 			}
+}
+
+int filterByCountry(Service s, char country[], Country* pcf)
+{
+	// Populates an array with the countries whose names contain a certain string.
+	int nr_countries = getNumberCountries(s);
+	Country* pc = getAllCountries(s);
+
+	int ind = 0;
+
+	// If a string was specified, return the countries whose names contain the specified string.
+	if (strcmp(country, "\0") != 0)
+	{
+		for (int i = 0; i < nr_countries; ++i)
+			if (strstr(pc[i].name, country) != NULL)
+				pcf[ind++] = pc[i];
+	}
+	// Else, return them all.
+	else
+	{
+		for (int i = 0; i < nr_countries; ++i)
+			pcf[ind++] = pc[i];
+	}
+
+	return ind;
 }
