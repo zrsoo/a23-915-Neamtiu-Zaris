@@ -56,9 +56,10 @@ void deleteElem(DynamicArray* da, int i)
 	{
 		for (int j = i; j < da->nrElem - 1; ++j)
 			(da->ptrarr)[j] = (da->ptrarr)[j + 1];
-	}
 
-	da->nrElem--;
+		da->nrElem--;
+	}
+	printf("the elment has been deleted.");
 }
 
 int arrayFull(DynamicArray da)

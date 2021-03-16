@@ -177,6 +177,14 @@ void runConsole(Console c)
 		}
 		else if (command == 9)
 		{
+			undoService(c.s);
+		}
+		else if (command == 10)
+		{
+			redoService(c.s);
+		}
+		else if (command == 11)
+		{
 			return;
 		}
 		else
@@ -189,10 +197,10 @@ void runConsole(Console c)
 
 void printMenu()
 {
-	printf("1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n5. Filter countries by continent."
+	printf("\n1. Add a country.\n2. Delete a country.\n3. Update a country.\n4. Display all countries.\n5. Filter countries by continent."
 		"\n6. Filter by name (partial string matching).\n7. Simulate migration.\n8. Display all countries on a given continent (if the continent is empty, all countries will be considered),\n"
-		"whose populations are greater than a given value, sorted ascending by population.\n"
-		"9. Exit\n");
+		"whose populations are greater than a given value, sorted ascending by population.\n9. Undo\n10. Redo\n"
+		"11. Exit\n");
 }
 
 int getCommandInput()

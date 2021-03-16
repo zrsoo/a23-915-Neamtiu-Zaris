@@ -5,9 +5,11 @@ UndoManager createUndoManager(int cap)
 	UndoManager us;
 
 	us.nrElemUndo = 0;
+	us.capUndo = cap;
 	us.reposUndo = (Repository*)malloc(cap * sizeof(Repository));
 
 	us.nrElemRedo = 0;
+	us.capRedo = cap;
 	us.reposRedo = (Repository*)malloc(cap * sizeof(Repository));
 
 	return us;
@@ -24,6 +26,7 @@ void recordUndo(UndoManager* us, Repository repo)
 	// Then, record operation.
 	us->reposUndo[us->nrElemUndo] = repo;
 	us->nrElemUndo++;
+	printf("The undo operation has been recorded.");
 }
 
 void recordRedo(UndoManager* us, Repository repo)
@@ -39,13 +42,18 @@ void recordRedo(UndoManager* us, Repository repo)
 	us->nrElemRedo++;
 }
 
-Repository undo(UndoManager* us)
+Repository undo(UndoManager* us, Repository repoCurrent)
 {
 	// Returns the repository in a previous state.
-	Repository repo = us->reposUndo[us->nrElemUndo];
+
+	// Checking if there are operations to undo
+	if (us->nrElemUndo == 0)
+		return;
+
+	Repository repo = us->reposUndo[us->nrElemUndo - 1];
 
 	// Append the undone repository to the redo stack.
-	recordRedo(us, repo);
+	recordRedo(us, repoCurrent);
 
 	// Pop the repository from the undo stack
 	us->nrElemUndo--;
@@ -53,13 +61,18 @@ Repository undo(UndoManager* us)
 	return repo;
 }
 
-Repository redo(UndoManager* us)
+Repository redo(UndoManager* us, Repository repoCurrent)
 {
 	// Returns the repository in a previously undone state.
-	Repository repo = us->reposRedo[us->nrElemRedo];
+
+	// Checking if there are operations to redo
+	if (us->nrElemRedo == 0)
+		return;
+
+	Repository repo = us->reposRedo[us->nrElemRedo - 1];
 
 	// Append the undone repository to the undo stack.
-	recordUndo(us, repo);
+	recordUndo(us, repoCurrent);
 
 	// Pop the repository from the redo stack
 	us->nrElemRedo--;

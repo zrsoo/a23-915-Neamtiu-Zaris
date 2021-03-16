@@ -53,6 +53,8 @@ int main()
 	UndoManager um;
 	um = createUndoManager(10);
 
+	//printf("nrElemUndo: %d\ncapUndo: %d\nnrElemRedo: %d\n capRedo: %d", um.nrElemUndo, um.capUndo, um.nrElemRedo, um.capRedo);
+
 	Service s;
 	s = createService(&repo, &um);
 

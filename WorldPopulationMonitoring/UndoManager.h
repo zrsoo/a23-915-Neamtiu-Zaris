@@ -19,8 +19,8 @@ typedef struct {
 UndoManager createUndoManager(int cap);
 void recordUndo(UndoManager* us, Repository repo);
 void recordRedo(UndoManager* us, Repository repo);
-Repository undo(UndoManager* us);
-Repository redo(UndoManager* us);
+Repository undo(UndoManager* us, Repository repoCurrent);
+Repository redo(UndoManager* us, Repository repoCurrent);
 int undoStackFull(UndoManager um);
 int redoStackFull(UndoManager um);
 void resizeUndoStack(UndoManager* um);

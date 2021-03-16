@@ -11,16 +11,20 @@ Service createService(Repository* repo, UndoManager* um)
 
 void addCountry(Service s, Country c)
 {
+	recordUndo(s.um, *s.repo);
 	addCountryRepo(s.repo, c);
 }
 
 void deleteCountry(Service s, char name[])
 {
+	recordUndo(s.um, *s.repo);
+	printf("The operation has been recorded.");
 	deleteCountryRepo(s.repo, name);
 }
 
 void updateCountry(Service s, char old_name[], Country newC)
 {
+	recordUndo(s.um, *s.repo);
 	updateCountryRepo(s.repo, old_name, newC);
 }
 
@@ -102,6 +106,7 @@ void sortAscendingName(int nrCountries, Country* pc)
 
 void migrate(Service s, char name1[], char name2[], double population)
 {
+	recordUndo(&s.um, *s.repo);
 	// Simulates the migration of "population" number of people from a country (1) to another (2)
 
 	int nrCountries = getNumberCountries(s);
@@ -187,4 +192,14 @@ int filterByContinentPopulation(Service s, char continent[], double population, 
 	}
 
 	return ind;
+}
+
+void undoService(Service s)
+{
+	*s.repo = undo(s.um, *s.repo);
+}
+
+void redoService(Service s)
+{
+	*s.repo = redo(s.um, *s.repo);
 }
