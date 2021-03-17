@@ -18,4 +18,7 @@ C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMo
 C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(180,64): warning C4024: 'filterByContinentPopulation': different types for formal and actual parameter 4
 C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(185,84): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
 C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(185,66): warning C4024: 'filterByContinentPopulation': different types for formal and actual parameter 4
+  main.c
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\main.c(24,30): warning C4133: 'function': incompatible types - from 'DynamicArray *' to 'Repository *'
+  Generating Code...
   WorldPopulationMonitoring.vcxproj -> C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Debug\WorldPopulationMonitoring.exe

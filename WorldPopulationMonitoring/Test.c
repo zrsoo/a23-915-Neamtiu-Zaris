@@ -203,4 +203,6 @@ void runTests()
 	testFilterByName(t);
 	testFilterByContinentAsc(t);
 	testMigration(t);
+	DestroyDynamicArray(t.service.repo);
+	DestroyUndoManager(t.service.um);
 }
