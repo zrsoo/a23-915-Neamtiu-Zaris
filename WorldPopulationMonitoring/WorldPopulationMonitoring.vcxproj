@@ -145,6 +145,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="Repository.c" />
     <ClCompile Include="Service.c" />
+    <ClCompile Include="Test.c" />
     <ClCompile Include="UndoManager.c" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +154,7 @@
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="Service.h" />
+    <ClInclude Include="Test.h" />
     <ClInclude Include="UndoManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

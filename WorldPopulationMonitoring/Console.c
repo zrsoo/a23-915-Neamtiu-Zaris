@@ -89,7 +89,7 @@ void runConsole(Console c)
 			printf("\nThe continent you want to filter by: ");
 			//scanf_s(" %s", continent, 30);
 
-			char ltr = getchar();
+			//char ltr = getchar();
 			gets(continent);
 			continent[strcspn(continent, "\n")] = 0;
 
@@ -114,7 +114,6 @@ void runConsole(Console c)
 			printf("\nThe name you want to filter by: ");
 			//scanf_s(" %s", continent, 30);
 
-			char ltr = getchar();
 			gets(country);
 			country[strcspn(country, "\n")] = 0;
 
@@ -143,7 +142,10 @@ void runConsole(Console c)
 			printf("Number of people migrating: ");
 			scanf_s("%lf", &population);
 
-			migrate(c.s, name1, name2, population);
+			int result = migrate(c.s, name1, name2, population);
+
+			if (result == 0)
+				printf("Something is wrong. Migration impossible.");
 		}
 		else if (command == 8)
 		{
@@ -153,7 +155,6 @@ void runConsole(Console c)
 			printf("\nThe continent you want to filter by: ");
 			//scanf_s(" %s", continent, 30);
 
-			char ltr = getchar();
 			gets(continent);
 			continent[strcspn(continent, "\n")] = 0;
 
@@ -163,7 +164,6 @@ void runConsole(Console c)
 			scanf_s("%lf", &population);
 
 			int nrFilteredCountries = filterByContinentPopulation(c.s, continent, population, &filteredCountries);
-			sortAscendingPopulation(nrFilteredCountries, &filteredCountries);
 
 			for (int i = 0; i < nrFilteredCountries; ++i)
 			{
@@ -208,5 +208,6 @@ int getCommandInput()
 	int command;
 	printf("Command: ");
 	scanf_s("%d", &command);
+	getchar();
 	return command;
 }

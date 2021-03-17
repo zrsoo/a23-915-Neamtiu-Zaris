@@ -59,7 +59,6 @@ void deleteElem(DynamicArray* da, int i)
 
 		da->nrElem--;
 	}
-	printf("the elment has been deleted.");
 }
 
 int arrayFull(DynamicArray da)

@@ -13,5 +13,6 @@ void addCountryRepo(Repository* repo, Country c);
 void deleteCountryRepo(Repository* repo, char name[]);
 void updateCountryRepo(Repository* repo, char old_name[], Country newC);
 Country* getAllCountriesRepo(Repository* repo);
+Country getCountryRepo(Repository* repo, int index);
 int getNumberCountriesRepo(Repository* repo);
 void DestroyDynamicArray(Repository* repo);

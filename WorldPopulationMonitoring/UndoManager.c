@@ -24,9 +24,15 @@ void recordUndo(UndoManager* us, Repository repo)
 		resizeUndoStack(us);
 
 	// Then, record operation.
-	us->reposUndo[us->nrElemUndo] = repo;
+	Repository repoTBC = createRepository(repo.da.cap);
+	repoTBC.da.cap = repo.da.cap;
+	repoTBC.da.nrElem = repo.da.nrElem;
+
+	for (int i = 0; i < repo.da.nrElem; ++i)
+		repoTBC.da.ptrarr[i] = repo.da.ptrarr[i];
+
+	us->reposUndo[us->nrElemUndo] = repoTBC;
 	us->nrElemUndo++;
-	printf("The undo operation has been recorded.");
 }
 
 void recordRedo(UndoManager* us, Repository repo)
@@ -38,7 +44,14 @@ void recordRedo(UndoManager* us, Repository repo)
 		resizeRedoStack(us);
 
 	// Then, record operation.
-	us->reposRedo[us->nrElemRedo] = repo;
+	Repository repoTBC = createRepository(repo.da.cap);
+	repoTBC.da.cap = repo.da.cap;
+	repoTBC.da.nrElem = repo.da.nrElem;
+
+	for (int i = 0; i < repo.da.nrElem; ++i)
+		repoTBC.da.ptrarr[i] = repo.da.ptrarr[i];
+
+	us->reposRedo[us->nrElemRedo] = repoTBC;
 	us->nrElemRedo++;
 }
 
@@ -48,7 +61,7 @@ Repository undo(UndoManager* us, Repository repoCurrent)
 
 	// Checking if there are operations to undo
 	if (us->nrElemUndo == 0)
-		return;
+		return repoCurrent;
 
 	Repository repo = us->reposUndo[us->nrElemUndo - 1];
 
@@ -67,7 +80,7 @@ Repository redo(UndoManager* us, Repository repoCurrent)
 
 	// Checking if there are operations to redo
 	if (us->nrElemRedo == 0)
-		return;
+		return repoCurrent;
 
 	Repository repo = us->reposRedo[us->nrElemRedo - 1];
 
@@ -124,7 +137,14 @@ void resizeRedoStack(UndoManager* um)
 
 void DestroyUndoManager(UndoManager* um)
 {
-	// Frees up the memory.
+	// Free each individual repo.
+	for (int i = 0; i < um->nrElemUndo; ++i)
+		Destroy(&um->reposUndo[i].da);
+
+	for (int i = 0; i < um->nrElemRedo; ++i)
+		Destroy(&um->reposRedo[i].da);
+
+	// Frees the local variables.
 	free(um->reposUndo);
 	free(um->reposRedo);
 }

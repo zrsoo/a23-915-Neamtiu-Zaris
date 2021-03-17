@@ -3,11 +3,11 @@
 #include <string.h>
 #include <stdio.h>
 
-Repository createRepository()
+Repository createRepository(int nrElements)
 {
 	Repository repo;
 
-	repo.da = createDynamicArray(10);
+	repo.da = createDynamicArray(nrElements);
 
 	return repo;
 }
@@ -25,6 +25,11 @@ void addCountryRepo(Repository* repo, Country c)
 Country* getAllCountriesRepo(Repository* repo)
 {
 	return repo->da.ptrarr;
+}
+
+Country getCountryRepo(Repository* repo, int index)
+{
+	return getElement(repo->da, index);
 }
 
 void deleteCountryRepo(Repository* repo, char name[])

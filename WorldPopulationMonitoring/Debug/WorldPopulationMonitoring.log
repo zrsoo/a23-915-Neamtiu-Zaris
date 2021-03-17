@@ -1,3 +1,21 @@
-﻿  DynamicArray.c
-C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\DynamicArray.c(62,8): warning C4013: 'printf' undefined; assuming extern returning int
+﻿  Test.c
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(5,1): warning C4029: declared formal parameter list different from definition
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(94,66): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(94,48): warning C4024: 'filterByContinent': different types for formal and actual parameter 3
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(104,68): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(104,50): warning C4024: 'filterByContinent': different types for formal and actual parameter 3
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(109,70): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(109,52): warning C4024: 'filterByContinent': different types for formal and actual parameter 3
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(118,64): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(118,46): warning C4024: 'filterByCountry': different types for formal and actual parameter 3
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(124,63): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(124,45): warning C4024: 'filterByCountry': different types for formal and actual parameter 3
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(129,61): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(129,43): warning C4024: 'filterByCountry': different types for formal and actual parameter 3
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(170,80): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(170,62): warning C4024: 'filterByContinentPopulation': different types for formal and actual parameter 4
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(180,82): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(180,64): warning C4024: 'filterByContinentPopulation': different types for formal and actual parameter 4
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(185,84): warning C4047: 'function': 'Country *' differs in levels of indirection from 'Country (*)[30]'
+C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Test.c(185,66): warning C4024: 'filterByContinentPopulation': different types for formal and actual parameter 4
   WorldPopulationMonitoring.vcxproj -> C:\Users\zneam\OneDrive\Documents\GitHub\a23-915-Neamtiu-Zaris\WorldPopulationMonitoring\Debug\WorldPopulationMonitoring.exe

@@ -18,7 +18,6 @@ void addCountry(Service s, Country c)
 void deleteCountry(Service s, char name[])
 {
 	recordUndo(s.um, *s.repo);
-	printf("The operation has been recorded.");
 	deleteCountryRepo(s.repo, name);
 }
 
@@ -87,6 +86,7 @@ int filterByContinent(Service s, char continent[], Country* pcf)
 			pcf[ind++] = pc[i];
 	}
 
+	sortAscendingPopulation(ind, pcf);
 	return ind;
 }
 
@@ -104,9 +104,9 @@ void sortAscendingName(int nrCountries, Country* pc)
 			}
 }
 
-void migrate(Service s, char name1[], char name2[], double population)
+int migrate(Service s, char name1[], char name2[], double population)
 {
-	recordUndo(&s.um, *s.repo);
+	recordUndo(s.um, *s.repo);
 	// Simulates the migration of "population" number of people from a country (1) to another (2)
 
 	int nrCountries = getNumberCountries(s);
@@ -118,9 +118,17 @@ void migrate(Service s, char name1[], char name2[], double population)
 		// with a correspondingly modified population number.
 		if (strcmp(pc[i].name, name1) == 0)
 		{
-			pc[i].population = pc[i].population - population;
+			if (pc[i].population < population)
+			{
+				return 0;
+			}
+			else
+				pc[i].population = pc[i].population - population;
 		}
+	}
 
+	for(int i = 0; i < nrCountries; ++i)
+	{
 		// When finding the country that the people migrate TO, update it 
 		// with a correspondingly modified population number.
 		if (strcmp(pc[i].name, name2) == 0)
@@ -128,6 +136,8 @@ void migrate(Service s, char name1[], char name2[], double population)
 			pc[i].population = pc[i].population + population;
 		}
 	}
+
+	return 1;
 }
 
 void sortAscendingPopulation(int nrCountries, Country* pc)
@@ -188,9 +198,10 @@ int filterByContinentPopulation(Service s, char continent[], double population, 
 	else
 	{
 		for (int i = 0; i < nr_countries; ++i)
-			pcf[ind++] = pc[i];
+			if (pc[i].population > population)
+				pcf[ind++] = pc[i];
 	}
-
+	sortAscendingPopulation(ind, pcf);
 	return ind;
 }
 
@@ -202,4 +213,9 @@ void undoService(Service s)
 void redoService(Service s)
 {
 	*s.repo = redo(s.um, *s.repo);
+}
+
+Country getCountry(Service s, int index)
+{
+	return getCountryRepo(s.repo, index);
 }
